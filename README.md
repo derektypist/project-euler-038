@@ -22,11 +22,20 @@ Enter a whole number between 2 and 9 (e.g. 8) and click on the Submit Button.  Y
 
 **User Stories**
 
+As a user, I get an error message, if I do any of:
+
+- Not enter anything in the input field
+- Entering text other than a number
+- Entering a number less than 2 or greater than 9
+- Entering a number, but it is not an integer
+
 As a user, I expect the function `pandigitalMultiples(8)` to return a number.
 
 As a user, I expect the function `pandigitalMultiples(8)` to return 78156234.
 
 As a user, I expect the function `pandigitalMultiples(9)` to return 932718654.
+
+User Stories for function `pandigitalMultiples(k)` taken from [FreeCodeCamp - Coding Interview Prep - Project Euler 038](https://www.freecodecamp.org/learn/coding-interview-prep/project-euler/problem-38-pandigital-multiples)
 
 **Information Architecture**
 
