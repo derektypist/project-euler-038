@@ -5,7 +5,7 @@ function getNumberInfo() {
     // Get the Value of the Input Field
     let num = document.getElementById("mynumber").value;
     // Check if input is valid
-    if (isNaN(num) || num.toString().length == 0 || num<2 || num>9 || !Number.isInteger(Number(num))) {
+    if (isNaN(num) || num.toString().length == 0 || num < 2 || num > 9 || !Number.isInteger(Number(num))) {
         txt += `Invalid Input.  Please enter a whole number between 2 and 9.`;
     } else {
         // Remove any leading zeros
@@ -26,30 +26,36 @@ function getNumberInfo() {
     pandigitalMultiples(9) returns 932718654
 */
 function pandigitalMultiples(k) {
-    function getKDigitConcatenatedProduct(num,k) {
+    function getKDigitConcatenatedProduct(num, k) {
         let concatenatedProduct = num.toString();
-        for (let i=2;concatenatedProduct.length<k;i++) {
+        for (let i = 2; concatenatedProduct.length < k; i++) {
             concatenatedProduct += num * i;
         }
         return concatenatedProduct.length === k ? concatenatedProduct : false;
     }
 
-    function is1toKPandigital(num,k) {
+    function is1toKPandigital(num, k) {
         const numStr = num.toString();
         if (numStr.length !== k) return false;
-        for (let i=k;i>0;i--) {
+        for (let i = k; i > 0; i--) {
             if (numStr.indexOf(i.toString()) === -1) return false;
         }
         return true;
     }
 
     let largestNum = 0;
-    for (let i=10;i<Math.floor(k/2)+1;i--) {
-        const concatenatedProduct = getKDigitConcatenatedProduct(i,k);
-        if (is1toKPandigital(concatenatedProduct,k)) {
+    for (let i = 10; i < Math.floor(k / 2) + 1; i--) {
+        const concatenatedProduct = getKDigitConcatenatedProduct(i, k);
+        if (is1toKPandigital(concatenatedProduct, k)) {
             const number = parseInt(concatenatedProduct, 10);
             if (number > largestNum) largestNum = number;
         }
     }
     return largestNum;
+}
+
+// Function to Clear Information
+function clearInfo() {
+    let txt = "";
+    document.getElementById("numinfo").innerHTML = txt;
 }
