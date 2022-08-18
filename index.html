@@ -26,5 +26,23 @@
         <p>The same can be achieved by starting at 9 and multiplying by 1, 2, 3, 4, and 5, giving the pandigital, 918273645, which is the concatenated product of 9 and (1,2,3,4,5).</p>
         <p>The aim is to find the largest 1 to k pandigital k-digit number that can be formed as the concatenated product of an integer with (1,2,...,n) where n &gt; 1.  Begin by entering the number of digits.</p>
     </section>
+
+    <!-- Set Up Form -->
+    <section class="container-fluid">
+        <form>
+            <!-- Set Up Label and Input -->
+            <article class="mb-3">
+                <label for="mynumber" class="form-label">Number of Digits (Required)</label>
+                <input class="form-control" placeholder="Enter whole number between 2 and 9 (e.g. 8)" title="Enter whole number between 2 and 9 (e.g. 8)" id="mynumber">
+            </article>
+
+            <!-- Set Up and Center Buttons -->
+            <article class="d-grid gap-2 d-flex justify-content-center">
+                <button type="button" class="btn btn-info" onclick="getNumberInfo()">Submit</button>
+                <button type="reset" class="btn btn-warning" onclick="clearInfo()">Reset</button>
+            </article>
+         
+        </form>
+    </section>
 </body>
 </html>
