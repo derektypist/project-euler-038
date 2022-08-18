@@ -17,3 +17,39 @@ function getNumberInfo() {
     // Display Information in the Browser
     document.getElementById("numinfo").innerHTML = txt;
 }
+
+/*
+    Function to Return the largest 1 to k pandigital k-digit number that can
+    be formed as the concatenated product of an integer with (1,2,...n)
+    where n is greater than 1
+    pandigitalMultiples(8) returns 78156234
+    pandigitalMultiples(9) returns 932718654
+*/
+function pandigitalMultiples(k) {
+    function getKDigitConcatenatedProduct(num,k) {
+        let concatenatedProduct = num.toString();
+        for (let i=2;concatenatedProduct.length<k;i++) {
+            concatenatedProduct += num * i;
+        }
+        return concatenatedProduct.length === k ? concatenatedProduct : false;
+    }
+
+    function is1toKPandigital(num,k) {
+        const numStr = num.toString();
+        if (numStr.length !== k) return false;
+        for (let i=k;i>0;i--) {
+            if (numStr.indexOf(i.toString()) === -1) return false;
+        }
+        return true;
+    }
+
+    let largestNum = 0;
+    for (let i=10;i<Math.floor(k/2)+1;i--) {
+        const concatenatedProduct = getKDigitConcatenatedProduct(i,k);
+        if (is1toKPandigital(concatenatedProduct,k)) {
+            const number = parseInt(concatenatedProduct, 10);
+            if (number > largestNum) largestNum = number;
+        }
+    }
+    return largestNum;
+}
