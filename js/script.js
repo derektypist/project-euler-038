@@ -44,7 +44,7 @@ function pandigitalMultiples(k) {
     }
 
     let largestNum = 0;
-    for (let i = 10; i < Math.floor(k / 2) + 1; i--) {
+    for (let i = 10**Math.floor(k / 2) + 1; i--) {
         const concatenatedProduct = getKDigitConcatenatedProduct(i, k);
         if (is1toKPandigital(concatenatedProduct, k)) {
             const number = parseInt(concatenatedProduct, 10);
